@@ -1,10 +1,10 @@
 <template>
   <v-navigation-drawer color="primary" dark app permanent>
       <v-list
-        dense
+        densex  
         nav
       >
-        <v-list-item
+        <v-list-item 
           v-for="item in items"
           :key="item.title"
           :to="item.link"
