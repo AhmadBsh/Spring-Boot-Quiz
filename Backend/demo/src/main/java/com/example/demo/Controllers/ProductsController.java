@@ -23,11 +23,6 @@ public class ProductsController {
     @Autowired
     EToM service ;  
 
-    @PostMapping( path = "/test")
-    public ProductsEntity koko(){
-        return new ProductsEntity();
-    }
-
     @PostMapping( path = "/create")
     public ProductsModel createProduct( @RequestBody ProductsModel productsModel ){
 
