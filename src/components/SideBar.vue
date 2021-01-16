@@ -25,10 +25,11 @@
 
 <script>
 export default {
+  name:'SideBar',
   data: () => ({
     items: [
-      { title: 'Products Management', icon: 'mdi-home', link: { name: 'Community' } },
-      { title: 'Clients Management', icon: 'mdi-chart-bar', link: { name: 'Boards' } },
+      { title: 'Products Management', icon: 'mdi-home', link: { name: 'About' } },
+      { title: 'Clients Management', icon: 'mdi-chart-bar', link: { name: 'Home' } },
       { title: 'Sales', icon: 'mdi-chat'  },
     ],
   }),
