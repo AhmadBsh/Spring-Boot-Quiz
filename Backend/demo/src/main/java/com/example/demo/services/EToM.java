@@ -64,7 +64,7 @@ public class EToM {
                          //// Clients services
 
 
-    public ClientsModel convertToClientModel( ClientsEntity c ){
+    public ClientsModel convertClientFromEntityToModel( ClientsEntity c ){
 
         ClientsModel model = new ClientsModel();
 
@@ -75,6 +75,28 @@ public class EToM {
 
         return model;
 
+    }
+
+    public ClientsEntity convertClientFromModelToEntity(ClientsModel clientsModel) {
+        
+        ClientsEntity entity = new ClientsEntity();
+
+        entity.setId(clientsModel.getId());
+        entity.setName(clientsModel.getName());
+        entity.setLast_name(clientsModel.getLast_name());
+        entity.setMobile(clientsModel.getMobile());
+
+        return entity;
+    }
+    
+    public List<ClientsModel> convertClientFromListEntityToListModel( List<ClientsEntity> ListEntity ){
+        List<ClientsModel> ListModel = new LinkedList<>();
+
+        for (ClientsEntity clientsEntity : ListEntity) {
+            ListModel.add(convertClientFromEntityToModel(clientsEntity));
+        }
+        
+        return ListModel;
     }
 
 
@@ -95,5 +117,9 @@ public class EToM {
         return model;
 
     }
+
+	
+
+	
     
 }

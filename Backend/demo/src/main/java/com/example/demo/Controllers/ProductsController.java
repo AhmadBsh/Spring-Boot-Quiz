@@ -29,7 +29,7 @@ public class ProductsController {
     }
 
     @PostMapping( path = "/create")
-    public ProductsModel createProducts( @RequestBody ProductsModel productsModel ){
+    public ProductsModel createProduct( @RequestBody ProductsModel productsModel ){
 
         ProductsEntity productsEntity = new ProductsEntity();
 
