@@ -26,8 +26,7 @@ public class ProductsEntity {
     public ProductsEntity() {
     }
 
-    public ProductsEntity(Long id, String name, String description, String category, Date creation_date, int quantities,
-            int price) {
+    public ProductsEntity(Long id, String name, String description, String category, Date creation_date, int quantities,int price) {
         this.id = id;
         this.name = name;
         this.description = description;

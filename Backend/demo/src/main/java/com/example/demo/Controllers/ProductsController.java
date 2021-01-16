@@ -30,55 +30,50 @@ public class ProductsController {
 
     @PostMapping( path = "/create")
     public ProductsModel createProducts( @RequestBody ProductsModel productsModel ){
+
         ProductsEntity productsEntity = new ProductsEntity();
+
         if ( productsRepository.findByName(productsModel.getName()).isPresent()){
+
             productsModel.setName("error");
             return productsModel ;
+
         }
         else{
+
             productsEntity = service.convertProductFromModelToEntity(productsModel);
             productsEntity = productsRepository.save(productsEntity);
             productsModel  = service.convertProductFromEntityToModel(productsEntity);
             return productsModel ;
+
         }
     }
 
     @GetMapping( path = "/fetch")
     public List<ProductsModel> fetchProducts(){
+
         return service.convertProductFromListEntityToListModel(productsRepository.fetchAllProducts().get());
+
     }
 
     @PostMapping( path = "/update")
-    public boolean updateProduct(@RequestBody ProductsModel productsModel ){
+    public ProductsModel updateProduct(@RequestBody ProductsModel productsModel ){
 
-        if (productsRepository.findByName(productsModel.getName()).isPresent()){
-
-            productsRepository.updateProduct(productsModel.getName(), productsModel.getDescription(), productsModel.getCategory(), productsModel.getQuantities(), productsModel.getPrice(), productsModel.getId());
-            return true ;
-        }
-        else
-            return false ;
-        
-
-        /*
         ProductsEntity productsEntity = new ProductsEntity();
+
         if (productsRepository.findById(productsModel.getId()).isPresent()){
 
             productsEntity = productsRepository.findById(productsModel.getId()).get();
-            productsRepository.delete(productsEntity);
             productsEntity = service.convertProductFromModelToEntity(productsModel);
             productsEntity = productsRepository.save(productsEntity);
             return service.convertProductFromEntityToModel(productsEntity);
 
         }
         else{
+
             productsEntity.setName("error");
             return service.convertProductFromEntityToModel(productsEntity);
+            
         }
-        */
-    }
-
-    
-
-    
+    }  
 }

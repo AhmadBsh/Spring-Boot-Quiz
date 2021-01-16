@@ -16,8 +16,7 @@ public class ProductsModel {
        
     }
 
-    public ProductsModel(Long id, String name, String description, String category, Date creation_date, int quantities,
-            int price) {
+    public ProductsModel(Long id, String name, String description, String category, Date creation_date, int quantities,int price) {
         this.id = id;
         this.name = name;
         this.description = description;
@@ -94,14 +93,5 @@ public class ProductsModel {
                 ", quantities='" + getQuantities() + "'" +
                 ", price='" + getPrice() + "'" +
                 "}";
-    }
-
-
-
-
-
-
-
-    
-    
+    }    
 }

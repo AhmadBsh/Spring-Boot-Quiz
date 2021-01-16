@@ -15,6 +15,9 @@ import org.springframework.stereotype.Service;
 @Service
 public class EToM {
 
+
+                    //// Products services
+
     public ProductsModel convertProductFromEntityToModel( ProductsEntity p ){
 
         ProductsModel model = new ProductsModel();
@@ -35,6 +38,7 @@ public class EToM {
 
         ProductsEntity entity = new ProductsEntity();
 
+        entity.setId(productsModel.getId());
         entity.setName(productsModel.getName());
         entity.setCategory(productsModel.getCategory());
         entity.setCreation_date(productsModel.getCreation_date());
@@ -48,11 +52,16 @@ public class EToM {
 
     public List<ProductsModel> convertProductFromListEntityToListModel( List<ProductsEntity> ListEntity ){
         List<ProductsModel> ListModel = new LinkedList<>();
+
         for (ProductsEntity productsEntity : ListEntity) {
             ListModel.add(convertProductFromEntityToModel(productsEntity));
         }
+        
         return ListModel;
     }
+
+
+                         //// Clients services
 
 
     public ClientsModel convertToClientModel( ClientsEntity c ){
@@ -67,6 +76,11 @@ public class EToM {
         return model;
 
     }
+
+
+
+                    //// Sales services
+
 
     public SalesModel convertToSaleModel( SalesEntity s ){
 
