@@ -28,9 +28,9 @@ export default {
   name:'SideBar',
   data: () => ({
     items: [
-      { title: 'Products Management', icon: 'mdi-home', link: { name: 'About' } },
-      { title: 'Clients Management', icon: 'mdi-chart-bar', link: { name: 'Home' } },
-      { title: 'Sales', icon: 'mdi-chat'  },
+      { title: 'Products Management', icon: 'mdi-home', link: { name: 'PManagement' } },
+      { title: 'Clients Management', icon: 'mdi-chart-bar', link: { name: 'CManagement' } },
+      { title: 'Sales', icon: 'mdi-currency-usd'  , link: { name: 'Sales' } },
     ],
   }),
 }
