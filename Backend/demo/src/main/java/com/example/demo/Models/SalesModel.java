@@ -10,16 +10,18 @@ public class SalesModel {
     private String seller;
     private Date creation_date;
     private double total;
+    private int quantities_of_sale;
 
     public SalesModel() {
     }
 
-    public SalesModel(Long id, String client, String seller, Date creation_date, double total) {
+    public SalesModel(Long id, String client, String seller, Date creation_date, double total, int quantities_of_sale) {
         this.id = id;
         this.client = client;
         this.seller = seller;
         this.creation_date = creation_date;
         this.total = total;
+        this.quantities_of_sale = quantities_of_sale;
     }
 
     public Long getId() {
@@ -62,6 +64,14 @@ public class SalesModel {
         this.total = total;
     }
 
+    public int getQuantities_of_sale() {
+        return this.quantities_of_sale;
+    }
+
+    public void setQuantities_of_sale(int quantities_of_sale) {
+        this.quantities_of_sale = quantities_of_sale;
+    }
+
     @Override
     public String toString() {
         return "{" +
@@ -70,6 +80,7 @@ public class SalesModel {
             ", seller='" + getSeller() + "'" +
             ", creation_date='" + getCreation_date() + "'" +
             ", total='" + getTotal() + "'" +
+            ", quantities_of_sale='" + getQuantities_of_sale() + "'" +
             "}";
     }
 

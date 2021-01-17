@@ -6,6 +6,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -15,22 +17,28 @@ public class SalesEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
+    
+    private String seller               ;
+    private Date   creation_date        ;
+    private double total                ;
+    private int    quantities_of_sale   ;
 
-    private String client        ;
-    private String seller        ;
-    private Date   creation_date ;
-    private double total         ;
+    @ManyToOne
+    @JoinColumn(name = "client_id", nullable = true)
+    private ClientsEntity clientEntity        ;
+
 
 
     public SalesEntity() {
     }
 
-    public SalesEntity(Long id, String client, String seller, Date creation_date, double total) {
+    public SalesEntity(Long id, String seller, Date creation_date, double total, int quantities_of_sale, ClientsEntity clientEntity) {
         this.id = id;
-        this.client = client;
         this.seller = seller;
         this.creation_date = creation_date;
         this.total = total;
+        this.quantities_of_sale = quantities_of_sale;
+        this.clientEntity = clientEntity;
     }
 
     public Long getId() {
@@ -39,14 +47,6 @@ public class SalesEntity {
 
     public void setId(Long id) {
         this.id = id;
-    }
-
-    public String getClient() {
-        return this.client;
-    }
-
-    public void setClient(String client) {
-        this.client = client;
     }
 
     public String getSeller() {
@@ -73,18 +73,33 @@ public class SalesEntity {
         this.total = total;
     }
 
+    public int getQuantities_of_sale() {
+        return this.quantities_of_sale;
+    }
+
+    public void setQuantities_of_sale(int quantities_of_sale) {
+        this.quantities_of_sale = quantities_of_sale;
+    }
+
+    public ClientsEntity getClientEntity() {
+        return this.clientEntity;
+    }
+
+    public void setClientEntity(ClientsEntity clientEntity) {
+        this.clientEntity = clientEntity;
+    }
+
     @Override
     public String toString() {
         return "{" +
             " id='" + getId() + "'" +
-            ", client='" + getClient() + "'" +
             ", seller='" + getSeller() + "'" +
             ", creation_date='" + getCreation_date() + "'" +
             ", total='" + getTotal() + "'" +
+            ", quantities_of_sale='" + getQuantities_of_sale() + "'" +
+            ", clientEntity='" + getClientEntity() + "'" +
             "}";
     }
-
-
 
     
     

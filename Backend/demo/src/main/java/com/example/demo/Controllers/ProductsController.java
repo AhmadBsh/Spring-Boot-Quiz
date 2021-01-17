@@ -58,7 +58,7 @@ public class ProductsController {
 
         if (productsRepository.findById(productsModel.getId()).isPresent()){
 
-            productsEntity = productsRepository.findById(productsModel.getId()).get();
+            productsEntity.setId(productsModel.getId());
             productsEntity = service.convertProductFromModelToEntity(productsModel);
             productsEntity = productsRepository.save(productsEntity);
             return service.convertProductFromEntityToModel(productsEntity);
