@@ -24,11 +24,7 @@ public class ClientsController {
     @Autowired
     EToM service ;
 
-    @PostMapping( path = "/test")
-    public ClientsEntity koko(){
-        return new ClientsEntity();
-    }
-
+    
     @PostMapping( path = "/create")
     public ClientsModel createClient( @RequestBody ClientsModel clientsModel ){
 
@@ -36,7 +32,7 @@ public class ClientsController {
 
         if ( clientsRepository.findByMobile(clientsModel.getMobile()).isPresent()){
 
-            clientsModel.setName("error");  /// mobile is same
+            clientsModel.setName("error"); 
             return clientsModel ;
 
         }

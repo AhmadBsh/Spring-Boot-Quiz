@@ -104,19 +104,32 @@ public class EToM {
                     //// Sales services
 
 
-    public SalesModel convertToSaleModel( SalesEntity s ){
+    public SalesModel convertSalesFromEntityToModel( SalesEntity s ){
 
         SalesModel model = new SalesModel();
 
         model.setId(s.getId());
-        model.setClient(s.getClient());
+        model.setClient(s.getClientEntity().getName());
         model.setCreation_date(s.getCreation_date());
         model.setSeller(s.getSeller());
         model.setTotal(s.getTotal());
+        model.setQuantities_of_sale(s.getQuantities_of_sale());
 
         return model;
 
     }
+
+
+    public List<SalesModel> convertSalesFromListEntityToListModel( List<SalesEntity> ListEntity ){
+        List<SalesModel> ListModel = new LinkedList<>();
+
+        for (SalesEntity salesEntity : ListEntity) {
+            ListModel.add(convertSalesFromEntityToModel(salesEntity));
+        }
+        
+        return ListModel;
+    }
+
 
 	
 

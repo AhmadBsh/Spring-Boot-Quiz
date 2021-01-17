@@ -23,11 +23,6 @@ public class ProductsController {
     @Autowired
     EToM service ;  
 
-    @PostMapping( path = "/test")
-    public ProductsEntity koko(){
-        return new ProductsEntity();
-    }
-
     @PostMapping( path = "/create")
     public ProductsModel createProduct( @RequestBody ProductsModel productsModel ){
 
@@ -48,6 +43,7 @@ public class ProductsController {
 
         }
     }
+   
 
     @GetMapping( path = "/fetch")
     public List<ProductsModel> fetchProducts(){
@@ -63,7 +59,7 @@ public class ProductsController {
 
         if (productsRepository.findById(productsModel.getId()).isPresent()){
 
-            productsEntity = productsRepository.findById(productsModel.getId()).get();
+            productsEntity.setId(productsModel.getId());
             productsEntity = service.convertProductFromModelToEntity(productsModel);
             productsEntity = productsRepository.save(productsEntity);
             return service.convertProductFromEntityToModel(productsEntity);
