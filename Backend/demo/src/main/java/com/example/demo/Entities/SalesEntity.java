@@ -27,8 +27,6 @@ public class SalesEntity {
     @JoinColumn(name = "client_id", nullable = true)
     private ClientsEntity clientEntity        ;
 
-
-
     public SalesEntity() {
     }
 

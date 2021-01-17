@@ -32,7 +32,7 @@ public class ClientsController {
 
         if ( clientsRepository.findByMobile(clientsModel.getMobile()).isPresent()){
 
-            clientsModel.setName("error");  /// mobile is same
+            clientsModel.setName("error"); 
             return clientsModel ;
 
         }

@@ -119,19 +119,6 @@ public class EToM {
 
     }
 
-    // public SalesEntity convertSalesFromModelToEntity( SalesModel s ){
-
-    //     SalesEntity entity = new SalesEntity();
-
-    //     entity.setId(s.getId());
-    //     entity.setClient(s.getClient());
-    //     entity.setCreation_date(s.getCreation_date());
-    //     entity.setSeller(s.getSeller());
-    //     entity.setTotal(s.getTotal());
-
-    //     return entity;
-
-    // }
 
     public List<SalesModel> convertSalesFromListEntityToListModel( List<SalesEntity> ListEntity ){
         List<SalesModel> ListModel = new LinkedList<>();
