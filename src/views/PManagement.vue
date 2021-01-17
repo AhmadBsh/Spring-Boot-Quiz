@@ -76,7 +76,7 @@
                     <v-btn 
                       :disabled="!valid"
                       class="mr-4 "
-                      @click="validate ,editUserInfo"
+                      @click="validate ,createProductInfo"
                       color="primary"
                      >
                      Create
@@ -300,7 +300,7 @@ export default {
     reset2() {
       this.$refs.reset2.reset();
     },
-    // editProductInfo () {
+    // createProductInfo () {
     //   const self = this
 
     //   const info = {
@@ -314,6 +314,23 @@ export default {
     //   }
 
     //   self.axios.post('http://127.0.0.1:8083/products/create', info).then((res) => {
+        
+    //   })
+    // },
+    // editProductInfo () {
+    //   const self = this
+
+    //   const info = {
+    //     id: self.product.id,
+    //     name: self.product.name,
+    //     description: self.product.description,
+    //     category: self.product.category,
+    //     quantities: self.product.quantities,
+    //     price: self.product.price,
+    //     creation_date: self.product.creation_date,
+    //   }
+
+    //   self.axios.post('http://127.0.0.1:8083/products/update', info).then((res) => {
         
     //   })
     // },
