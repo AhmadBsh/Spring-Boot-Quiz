@@ -24,8 +24,7 @@ public class ClientsController {
     @Autowired
     EToM service ;
 
-  
-
+    
     @PostMapping( path = "/create")
     public ClientsModel createClient( @RequestBody ClientsModel clientsModel ){
 
